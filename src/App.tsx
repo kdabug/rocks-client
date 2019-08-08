@@ -48,7 +48,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <main>
-          hello world
           <Header />
           <Button height="100px" width="400px">
             Go
