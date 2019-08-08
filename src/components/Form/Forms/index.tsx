@@ -1,7 +1,7 @@
 import { Login } from "./Login";
 import { Register } from "./Register";
-import { AddRocks } from "./AddRock";
-import { EditRocks } from "./EditRock";
+import { AddRock } from "./AddRock";
+import { EditRock } from "./EditRock";
 
 //TODO: refactor "TextInput" to FormTextInput
-export { Login, Register, AddRocks, EditRocks };
+export { Login, Register, AddRock, EditRock };
