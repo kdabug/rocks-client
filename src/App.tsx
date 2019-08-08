@@ -2,7 +2,7 @@ import React from "react";
 //import "./App.css";
 // import Login from "./components/Login";
 // import Logout from "./components/Logout";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 // import Footer from "./components/Footer";
 // import Register from "./components/Register";
 // import UserProfile from "./components/UserProfile";
@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <main>
-          hello world
+          <Header />
           <Button height="100px" width="400px">
             Go
           </Button>
