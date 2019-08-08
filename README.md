@@ -1,3 +1,19 @@
+# DAM ROCKS
+
+This is the client-facing side of the DAM ROCKS application.
+
+DAM ROCKS is a library of rocks, crystals, and gemstones. It includes the name of the rock, their metaphysical properties, their color, and their associated chakra.
+
+In this client-side application, users have the ability to add rocks to their collection and favorite rocks, as well as add rocks to the api and edit rocks they have previously added.
+
+## Installation
+
+Run `npm install` to install all dependencies.
+
+## Technologies
+
+This client-facing web app utilizes Typescript and styled-components.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
