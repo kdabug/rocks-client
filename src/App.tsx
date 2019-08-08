@@ -1,17 +1,18 @@
 import React from "react";
-import "./App.css";
-import Login from "./components/Login";
-import Logout from "./components/Logout";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Register from "./components/Register";
-import UserProfile from "./components/UserProfile";
+//import "./App.css";
+// import Login from "./components/Login";
+// import Logout from "./components/Logout";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
+// import Register from "./components/Register";
+// import UserProfile from "./components/UserProfile";
 
 import { Route, Switch } from "react-router-dom";
+import { Button } from "./components/Button";
 
-class App extends Component {
-  constructor() {
-    super();
+class App extends React.Component {
+  constructor(props: any) {
+    super(props);
     this.state = {
       rockData: [],
       chakraData: [],
@@ -28,12 +29,12 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(e) {
+  async handleSubmit(e: any) {
     e.preventDefault();
     //console.log("THIS IS HANDLE SUBMIT STATE", this.state);
-    this.setState(prevState => ({
-      tweedrData: prevState.tweedrData.push(this.state.formQuery)
-    }));
+    // this.setState(prevState => ({
+    //   // tweedrData: prevState.tweedrData.push(this.state.formQuery)
+    // }));
   }
 
   handleChange(e) {
@@ -47,7 +48,11 @@ class App extends Component {
     return (
       <div className="App">
         <main>
-          <Header userName={this.state.userName} />
+          hello world
+          <Button height="100px" width="400px">
+            Go
+          </Button>
+          {/* <Header userName={this.state.userName} />
           <Switch>
             <Route path="/login" render={props => <Login {...props} />} />
             <Route path="/logout" render={props => <Logout {...props} />} />
@@ -57,7 +62,7 @@ class App extends Component {
               rendeer={props => <UserProfile {...props} userName={userName} />}
             />
           </Switch>
-          <Footer userName={this.state.userName} />
+          <Footer userName={this.state.userName} /> */}
         </main>
       </div>
     );
