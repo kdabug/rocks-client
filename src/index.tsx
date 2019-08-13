@@ -19,3 +19,11 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+// export const themeColors: IThemeColors = {
+//   white: '#ffffff',
+//   orange: '#ff614b',
+//   lightGrey: '#B5B5B5',
+//   darkGrey: '#3E3E3E'
+//};
+//https://github.com/dam-mad/magistrate.git

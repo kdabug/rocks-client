@@ -6,11 +6,25 @@ import Header from "./components/Header";
 // import Footer from "./components/Footer";
 // import Register from "./components/Register";
 // import UserProfile from "./components/UserProfile";
+import { Form } from "./components/Form";
 
 import { Route, Switch } from "react-router-dom";
 import { Button } from "./components/Button";
+import { tsThisType } from "@babel/types";
 
-class App extends React.Component {
+interface AppState {
+  rockData: [];
+  chakraData: [];
+  propertyData: [];
+  rockName: string;
+  properties: [];
+  rockUse: string;
+  chakra: string;
+  rockUrl: string;
+  userData: {} | null;
+  toggleCreateRock: boolean;
+}
+class App extends React.Component<{}, AppState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -22,7 +36,8 @@ class App extends React.Component {
       rockUse: "",
       chakra: "",
       rockUrl: "",
-      userData: null
+      userData: null,
+      toggleCreateRock: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,27 +46,27 @@ class App extends React.Component {
 
   async handleSubmit(e: any) {
     e.preventDefault();
-    //console.log("THIS IS HANDLE SUBMIT STATE", this.state);
-    // this.setState(prevState => ({
-    //   // tweedrData: prevState.tweedrData.push(this.state.formQuery)
-    // }));
   }
 
-  handleChange(e) {
+  handleChange(e: any): void {
     const { name, value } = e.target;
-    this.setState({
+    this.setState<any>({
       [name]: value
     });
   }
+
+  componentDidMount() {}
 
   render() {
     return (
       <div className="App">
         <main>
           <Header />
+
           <Button height="100px" width="400px">
             Go
           </Button>
+          {this.state.toggleCreateRock && <Form />}
           {/* <Header userName={this.state.userName} />
           <Switch>
             <Route path="/login" render={props => <Login {...props} />} />
