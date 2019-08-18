@@ -45,7 +45,6 @@ const setRockChakra = async (id, rock_id) => {
   const resp = await api.post(`/rock/${rock_id}/chakra/${id}/add`);
   return resp.data;
 };
-
 const addRockProperty = async (id, rock_id) => {
   console.log(id, rock_id);
   const resp = await api.post(`/rock/${rock_id}/property/${id}/add`);

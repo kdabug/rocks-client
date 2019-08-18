@@ -21,7 +21,7 @@ interface AppState {
   rockUse: string;
   chakra: string;
   rockUrl: string;
-  userData: {} | null;
+  userData: "";
   toggleCreateRock: boolean;
 }
 class App extends React.Component<{}, AppState> {
@@ -61,23 +61,37 @@ class App extends React.Component<{}, AppState> {
     return (
       <div className="App">
         <main>
-          <Header />
-
           <Button height="100px" width="400px">
             Go
           </Button>
-          {this.state.toggleCreateRock && <Form />}
-          {/* <Header userName={this.state.userName} />
+          <Header userName={this.state.userData} />
           <Switch>
-            <Route path="/login" render={props => <Login {...props} />} />
-            <Route path="/logout" render={props => <Logout {...props} />} />
-            <Route path="/login" render={props => <Register {...props} />} />
             <Route
+              path="/add"
+              render={props => <Form {...props} renderForm={"addRock"} />}
+            />
+            <Route
+              path="/edit/:id"
+              render={props => <Form {...props} renderForm={"editRock"} />}
+            />
+            <Route
+              path="/login"
+              render={props => <Form {...props} renderForm={"login"} />}
+            />
+            <Route
+              path="/logout"
+              render={props => <Form {...props} renderForm={"logout"} />}
+            />
+            <Route
+              path="/register"
+              render={props => <Form {...props} renderForm={"register"} />}
+            />
+            {/* <Route
               path="/user-profile"
               rendeer={props => <UserProfile {...props} userName={userName} />}
-            />
+            /> */}
           </Switch>
-          <Footer userName={this.state.userName} /> */}
+          {/* <Footer userName={this.state.userName} /> */}
         </main>
       </div>
     );
