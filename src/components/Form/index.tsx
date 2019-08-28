@@ -30,8 +30,9 @@ export const Form = (props: any) => {
         br={7}
         p={16}
         shadow="boxShadowGiveawayCard"
+        fd="column"
       >
-        This is the content of the Form
+        This is the content of the Form {renderForm}
         {formType}
       </Box>
     </FormContainer>

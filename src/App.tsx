@@ -61,9 +61,6 @@ class App extends React.Component<{}, AppState> {
     return (
       <div className="App">
         <main>
-          <Button height="100px" width="400px">
-            Go
-          </Button>
           <Header userName={this.state.userData} />
           <Switch>
             <Route
