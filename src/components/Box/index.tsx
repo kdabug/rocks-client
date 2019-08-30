@@ -19,8 +19,6 @@ export const Box = styled.div<IBox>`
   height: ${({ h }) => h};
   padding: ${({ p }) => p && `${p}px`};
   border-radius: ${({ br }) => br && `${br}px`};
-  box-shadow: ${({ theme, shadow }) => shadow && theme[shadow]};
   background-color: ${({ theme, bgc }) => (bgc ? theme[bgc] : theme.primary2)};
   ${({ fd, flex }) => flex && fd && `flex-direction: ${fd}`};
-  ${({ theme, extend }) => extend && extend(theme)};
 `;

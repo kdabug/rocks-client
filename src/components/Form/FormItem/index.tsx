@@ -28,9 +28,9 @@ const FormItemContainer = styled.div<{ focused: boolean }>`
   width: 100%;
   position: relative;
   padding: 16px 0 16px 38px;
-  background: ${({ theme }) => theme.primary1};
+  background: ${({ theme }) => theme.primary4};
 
-  margin: 5px 0;
+  margin: 0;
   transition: all 0.3s;
 
   &:hover {
@@ -43,11 +43,10 @@ const FormItemWrap = styled.div<{ h?: string; focused: boolean }>`
   &::before {
     content: "";
     width: 3px;
-    height: ${({ h }) => (h ? h : "32px")};
     position: absolute;
     border-radius: 1.5px;
     background-color: ${({ theme, focused }) =>
-      focused ? theme.darkGrey : theme.primary4};
+      focused ? theme.darkGrey : theme.primary1};
     transition: background-color 0.4s;
   }
 `;

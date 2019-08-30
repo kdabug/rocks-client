@@ -10,8 +10,10 @@ const Header: FunctionComponent<Props> = ({ userName }) => (
   <HeaderContainer>
     <h1>DAM ROCKS</h1>
     <Link to="/add">addRock</Link>
-    <Link to="/login">Login</Link>
-    <Link to="/register">Login</Link>
+    <div>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+    </div>
   </HeaderContainer>
 );
 

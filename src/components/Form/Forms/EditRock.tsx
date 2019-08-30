@@ -7,15 +7,18 @@ import { FormTitle } from "../FormTitle";
 import { FormContainer } from "../FormContainer";
 import styled from "../../../theme/styledComponent";
 import { StyledComponent } from "styled-components";
+import { Button } from "../../Button";
+import { FormDropDown, DropDownOptions } from "../FormDropDown";
 
 //FIXME: need to convert all the DropDown components to use the Options component
 
 export const EditRock = (props: any) => {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    userRockCollection: [],
-    userFavoriteRocks: []
+    rockName: "",
+    rockColor: "",
+    rockChakra: "",
+    rockUses: "",
+    chakras: ["heart", "solar plexis", "sacral", "third eye", "throat"]
   });
 
   const [focus, setFocusItem] = useState(0);
@@ -32,20 +35,20 @@ export const EditRock = (props: any) => {
     setFormData({ ...formData, ...value });
   };
 
-  const { username, password } = formData;
+  const { rockName, rockColor, rockChakra, rockUses, chakras } = formData;
 
   return (
     <>
-      <FormTitle topFocus={focus}>User Login</FormTitle>
+      <FormTitle topFocus={focus}>Rock Form</FormTitle>
       <FormContainer autoComplete="off">
         <FormItem itemIndex={1} focus={focus} onFocusChange={setFocusItem}>
           <TextInput
             itemIndex={1}
             focus={focus}
             type="text"
-            placeholder={[`Username`, `Enter your username here`]}
-            name="username"
-            value={username}
+            placeholder={[`Rock`, `Enter name of rock here`]}
+            name="rockName"
+            value={rockName}
             handleUpdate={updateFormData}
           />
         </FormItem>
@@ -54,12 +57,43 @@ export const EditRock = (props: any) => {
             itemIndex={1}
             focus={focus}
             type="text"
-            placeholder={[`Password`, `Enter your password here`]}
-            name="password"
-            value={password}
+            placeholder={[`Color`, `Color of Rock`]}
+            name="rockColor"
+            value={rockColor}
             handleUpdate={updateFormData}
           />
         </FormItem>
+        <FormItem itemIndex={3} focus={focus} onFocusChange={setFocusItem}>
+          <FormDropDown
+            itemIndex={3}
+            focus={focus}
+            title="Chakra"
+            selected={rockChakra}
+          >
+            {" "}
+            <DropDownOptions
+              name="rockChakra"
+              options={chakras}
+              handleUpdate={updateFormData}
+            >
+              {rockChakra}
+            </DropDownOptions>
+          </FormDropDown>
+        </FormItem>
+        <FormItem itemIndex={4} focus={focus} onFocusChange={setFocusItem}>
+          <TextInput
+            itemIndex={1}
+            focus={focus}
+            type="text"
+            placeholder={[`Uses`, `Enter uses of rock`]}
+            name="rockUses"
+            value={rockUses}
+            handleUpdate={updateFormData}
+          />
+        </FormItem>
+        <Button height="100px" width="400px">
+          Go
+        </Button>
       </FormContainer>
     </>
   );

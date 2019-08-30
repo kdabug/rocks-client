@@ -12,7 +12,7 @@ import { StyledComponent } from "styled-components";
 
 export const Register = (props: any) => {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     userRockCollection: [],
     userFavoriteRocks: []
@@ -32,7 +32,7 @@ export const Register = (props: any) => {
     setFormData({ ...formData, ...value });
   };
 
-  const { username, password } = formData;
+  const { email, password } = formData;
 
   return (
     <>
@@ -43,9 +43,9 @@ export const Register = (props: any) => {
             itemIndex={1}
             focus={focus}
             type="text"
-            placeholder={[`Username`, `Enter your username here`]}
-            name="username"
-            value={username}
+            placeholder={[`Email`, `Enter your email here`]}
+            name="email"
+            value={email}
             handleUpdate={updateFormData}
           />
         </FormItem>

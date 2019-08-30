@@ -1,65 +1,44 @@
 import { api } from "./api-helper";
 
-//INITIAL DATA GRAB
-const fetchRockData = async () => {
-  const respData = await api.get(`/rocks`);
-  return respData;
-};
-const fetchChakraData = async () => {
-  const respData = await api.get(`/chakras`);
-  return respData.data;
-};
-const fetchPropertyData = async () => {
-  const respData = await api.get(`/properties`);
-  return respData.data;
-};
-
-//ADD NEW ITEMS
-const addRock = async body => {
-  const respData = await api.post(`/rocks/new`, body);
-  return respData;
-};
-const addProperty = async body => {
-  const respData = await api.post(`/properties/new`, body);
-  return respData;
-};
-const addColor = async body => {
-  const respData = await api.post(`/color/new`, body);
+const registerUser = async user => {
+  const respData = await api.post(`/users/register`, user);
+  console.log("this is create user: resp", respData);
   return respData;
 };
 
-//EDIT ROCKS
-const editRock = async (id, body) => {
-  const respData = await api.post(`/rocks/${id}/edit`, body);
+const editUser = async (id, edits) => {
+  console.log("making an edit request with this data", edits);
+  const respData = await api.put(`/users/${id}/edit`, edits);
+  console.log("this is edit user: resp", respData);
   return respData;
 };
 
-//ASSOCIATE ROCKS
-const addRockColor = async (id, rock_id) => {
+const loginUser = async user => {
+  const respData = await api.post(`/users/login`, user);
+  console.log("this is login user: resp", respData);
+  return respData;
+};
+
+const favoriteRock = async (id, rock_id) => {
   console.log(id, rock_id);
-  const resp = await api.post(`/rock/${rock_id}/color/${id}/add`);
+  const resp = await api.post(`/user/${id}/rock/${rock_id}/add`);
   return resp.data;
 };
-const setRockChakra = async (id, rock_id) => {
+const deleteFavoriteRock = async (id, rock_id) => {
   console.log(id, rock_id);
-  const resp = await api.post(`/rock/${rock_id}/chakra/${id}/add`);
+  const resp = await api.delete(`/rocks/${id}/user/${rock_id}/delete`);
   return resp.data;
 };
-const addRockProperty = async (id, rock_id) => {
-  console.log(id, rock_id);
-  const resp = await api.post(`/rock/${rock_id}/property/${id}/add`);
+const getUserRocks = async id => {
+  const resp = await api.get(`/users/${id}/favorites`);
   return resp.data;
 };
 
 export {
-  fetchRockData,
-  fetchChakraData,
-  fetchPropertyData,
-  addRock,
-  editRock,
-  addProperty,
-  addColor,
-  setRockChakra,
-  addRockColor,
-  addRockProperty
+  editUser,
+  registerUser,
+  loginUser,
+  favoriteRock,
+  getUserRocks,
+  deleteFavoriteRock
 };

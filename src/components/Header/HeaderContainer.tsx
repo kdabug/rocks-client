@@ -20,4 +20,9 @@ export const HeaderContainer = styled.nav<{ vert?: boolean }>`
   a {
     color: ${({ theme }) => theme.white};
   }
+  div {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+  }
 `;
