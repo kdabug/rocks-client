@@ -9,7 +9,6 @@ import styled from "../../theme/styledComponent";
 import { CardContainer } from "../../components/Card/CardContainer/index";
 import { List } from "../../components/List/index";
 import axios from "axios";
-import console = require("console");
 
 interface OptionsProps {
   name: string;
@@ -21,7 +20,7 @@ export const RockList: FunctionComponent<OptionsProps> = (
   const [rockData, setRockData] = useState([]);
 
   useEffect(() => {
-    fetchRockData().then(setRockData);
+    fetchRockData().then(setRockData());
   });
   useEffect(() => {
     (async function() {

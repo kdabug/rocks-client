@@ -7,25 +7,14 @@ import { FormTitle } from "../FormTitle";
 import { FormContainer } from "../FormContainer";
 import styled from "../../../theme/styledComponent";
 import { StyledComponent } from "styled-components";
+import { User } from "./types";
 
 //FIXME: need to convert all the DropDown components to use the Options component
 
-export const Login = (props: any) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    userRockCollection: [],
-    userFavoriteRocks: []
-  });
+export const Login = ({ initialUserData, props: any }) => {
+  const [formData, setFormData] = useState<User | null>(initialUserData);
 
   const [focus, setFocusItem] = useState(0);
-
-  // useEffect(() => {
-  //   setFormData({
-  //     ...formData,
-  //     ...props.survey
-  //   });
-  // }, [props.survey]);
 
   const updateFormData = val => {
     const value = val.target ? { [val.target.name]: val.target.value } : val;

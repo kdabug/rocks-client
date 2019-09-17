@@ -9,26 +9,13 @@ import styled from "../../../theme/styledComponent";
 import { StyledComponent } from "styled-components";
 import { Button } from "../../Button";
 import { FormDropDown, DropDownOptions } from "../FormDropDown";
-
+import { Rock } from "./types";
 //FIXME: need to convert all the DropDown components to use the Options component
 
-export const EditRock = (props: any) => {
-  const [formData, setFormData] = useState({
-    rockName: "",
-    rockColor: "",
-    rockChakra: "",
-    rockUses: "",
-    chakras: ["heart", "solar plexis", "sacral", "third eye", "throat"]
-  });
+export const EditRock = ({ initialRockData, props: any }) => {
+  const [formData, setFormData] = useState<Rock | null>(initialRockData);
 
   const [focus, setFocusItem] = useState(0);
-
-  // useEffect(() => {
-  //   setFormData({
-  //     ...formData,
-  //     ...props.survey
-  //   });
-  // }, [props.survey]);
 
   const updateFormData = val => {
     const value = val.target ? { [val.target.name]: val.target.value } : val;

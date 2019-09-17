@@ -4,7 +4,7 @@ import styled from "../../../theme/styledComponent";
 interface ITextInput {
   type: string;
   itemIndex: number;
-  focus: number;
+  focus?: number;
   name: string;
   value: string;
   handleUpdate: (val: any) => any;
